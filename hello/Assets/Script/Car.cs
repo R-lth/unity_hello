@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Car : MonoBehaviour
 {
     float speed = 2f;
     
@@ -15,13 +15,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position += new Vector3(0, 0, Time.deltaTime * speed);
     }
 
     private void FixedUpdate()
     {
-        //this.transform.position += deltaTime * speed * Vector3.forward;
-
         
     }
 }
