@@ -1,4 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
+
+// todo. ECS, 오브젝트 풀링 기반
 
 public class CharacterManager : MonoBehaviour
 {

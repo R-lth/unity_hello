@@ -37972,10 +37972,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f07d0f191cb59c4783a5af5532d30ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobSpawn
-  spawnPos: {fileID: 1740269720}
   monsters:
   - {fileID: 982192645802099483, guid: 3a2f5c6aa6efc7246a65c3d45e47d3e5, type: 3}
-  spawnRadius: 3
 --- !u!1 &1742547407
 GameObject:
   m_ObjectHideFlags: 0
