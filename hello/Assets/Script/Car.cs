@@ -11,17 +11,16 @@ public class Car : MonoBehaviour
 
     Rigidbody rb;
     float turn = 0f;
-    Vector3 keyboardMove;
-    Vector2 mouseDelta;
+    Vector3 keyboardMove = Vector3.zero;
+    Vector2 mouseDelta = Vector2.zero;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        turn = transform.eulerAngles.y;
 
         gameObject.transform.position = Vector3.zero;
         gameObject.transform.rotation = Quaternion.identity;
-
-        turn = transform.eulerAngles.y;
     }
 
     private void OnMove(InputValue value)
