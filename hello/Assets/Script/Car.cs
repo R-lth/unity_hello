@@ -45,8 +45,8 @@ public class Car : MonoBehaviour
         rb.MovePosition(rb.position + worldMove); // rb.MovePosition()는 월드 좌표를 입력 받는 함수
 
         // 마우스 회전
-        turn += mouseDelta.x * Time.fixedDeltaTime * rotateSpeed;
-        Quaternion rotate = Quaternion.Euler(0f, turn, 0f);
+        turn += mouseDelta.x * Time.fixedDeltaTime * rotateSpeed; 
+        Quaternion rotate = Quaternion.Euler(0f, turn, 0f); 
         rb.MoveRotation(rotate);
     }
 }
