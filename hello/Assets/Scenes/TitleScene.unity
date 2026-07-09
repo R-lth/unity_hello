@@ -893,7 +893,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uACBD\uCC30\uACFC \uB3C4\uB451"
+  m_text: "\uC29D\uC29D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb6abe07d16659a4bb97f690f0471457, type: 2}
   m_sharedMaterial: {fileID: -6864798924377747619, guid: eb6abe07d16659a4bb97f690f0471457, type: 2}
@@ -1059,7 +1059,7 @@ GameObject:
   - component: {fileID: 2142323320}
   - component: {fileID: 2142323319}
   m_Layer: 0
-  m_Name: TitleSceneManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
