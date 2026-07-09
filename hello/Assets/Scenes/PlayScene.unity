@@ -11951,7 +11951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f579d53f474c749a2facd672f7fa6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  speed: 15
+  moveSpeed: 10
+  rotateSpeed: 10
 --- !u!54 &517271338
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15353,6 +15354,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
   m_PrefabInstance: {fileID: 650398974}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &650568547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2385582739018653153, guid: 1ddb4af33e520ed4c9f84dff5077ea00, type: 3}
+  m_PrefabInstance: {fileID: 1415680009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &650568551
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650568547}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5293043589923337174, guid: 67cc45dda15375e4888e52bddff60955, type: 3}
 --- !u!1 &651460331
 GameObject:
   m_ObjectHideFlags: 0
@@ -31970,7 +31998,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8481863030056777239, guid: 1ddb4af33e520ed4c9f84dff5077ea00, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1472702821343334501, guid: 1ddb4af33e520ed4c9f84dff5077ea00, type: 3}
@@ -31982,6 +32011,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1472702821343334501, guid: 1ddb4af33e520ed4c9f84dff5077ea00, type: 3}
       insertIndex: -1
       addedObject: {fileID: 517271338}
+    - targetCorrespondingSourceObject: {fileID: 2385582739018653153, guid: 1ddb4af33e520ed4c9f84dff5077ea00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 650568551}
   m_SourcePrefab: {fileID: 100100000, guid: 1ddb4af33e520ed4c9f84dff5077ea00, type: 3}
 --- !u!1001 &1416519295
 PrefabInstance:
