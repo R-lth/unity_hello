@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
-public class Zombie : MonoBehaviour
+public class BossZombie : MonoBehaviour
 {
     [Header("Target")]
     [SerializeField] private Transform playerTransform;
@@ -21,7 +21,7 @@ public class Zombie : MonoBehaviour
     private float attackTimer;
 
     // Animator Parameter
-    private static readonly int SpeedHash = Animator.StringToHash("Speed");
+    private static readonly int SpeedHash = Animator.StringToHash("MoveSpeed");
     private static readonly int AttackHash = Animator.StringToHash("Attack");
 
     private void Awake()
@@ -109,14 +109,14 @@ public class Zombie : MonoBehaviour
     /// </summary>
     private void UpdateAnimation()
     {
-        // NavMeshAgent의 실제 이동 속도
-        Vector3 localVelocity =
-            transform.InverseTransformDirection(agent.velocity);
+        float speed = 0f;
 
-        float speed = localVelocity.z / moveSpeed;
+        if (!agent.isStopped && agent.speed > 0f)
+        {
+            speed = agent.velocity.magnitude / agent.speed;
+        }
 
-        // -1 ~ 1 제한
-        speed = Mathf.Clamp(speed, -1f, 1f);
+        speed = Mathf.Clamp01(speed);
 
         animator.SetFloat(
             SpeedHash,

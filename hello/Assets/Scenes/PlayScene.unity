@@ -12217,6 +12217,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 955233228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &548571289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7180546161885519099, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
+  m_PrefabInstance: {fileID: 2064915135}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &548571292
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548571289}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3039628
+  m_Height: 1.0474018
+  m_Direction: 1
+  m_Center: {x: -0.000000077386304, y: 0.5061843, z: -0.00006356533}
 --- !u!1001 &552005407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46771,19 +46799,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1409728478211012936, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
       propertyPath: m_Name
-      value: Boss Zombie Variant
+      value: Boss Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 3312536448583167983, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.31163
+      value: -0.77
       objectReference: {fileID: 0}
     - target: {fileID: 3312536448583167983, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.19635
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3312536448583167983, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.10847
+      value: 9.92
       objectReference: {fileID: 0}
     - target: {fileID: 3312536448583167983, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -46814,13 +46842,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8749103335503369279, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749103335503369279, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 517271339}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7180546161885519099, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 548571292}
   m_SourcePrefab: {fileID: 100100000, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
 --- !u!1 &2070960846
 GameObject:

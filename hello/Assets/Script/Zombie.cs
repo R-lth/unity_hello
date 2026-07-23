@@ -2,7 +2,7 @@
 using UnityEngine.AI;
 using UnityEngine.Splines;
 
-public class BossZombie : MonoBehaviour
+public class Zombie : MonoBehaviour
 {
     [SerializeField] private float attackRange = 3f; 
 
