@@ -25,19 +25,32 @@ public class InventoryComponent : MonoBehaviour
 
     public bool AddItem(ItemTemplete.Item newItem)
     {
-        for (int i = 0; i < maxSlotCnt; ++i)
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (!slots[i].IsEmpty && slots[i].item.id == newItem.id)
+            {
+                if (slots[i].cnt < maxItemCnt)
+                {
+                    slots[i] = new ItemTemplete.Slot(newItem, slots[i].cnt + 1);
+                    OnInventoryChanged?.Invoke();
+                    return true;
+                }
+            }
+        }
+
+        for (int i = 0; i < slots.Count; i++)
         {
             if (slots[i].IsEmpty)
             {
                 slots[i] = new ItemTemplete.Slot(newItem, 1);
                 OnInventoryChanged?.Invoke();
-
                 return true;
             }
         }
 
         return false;
     }
+
 
     public void Subtract(int slotIndex)
     {
