@@ -2,7 +2,7 @@
 using UnityEngine.AI;
 using UnityEngine.Splines;
 
-public class Zombie : MonoBehaviour
+public class BossZombie : MonoBehaviour
 {
     [SerializeField] private float attackRange = 3f; 
 
@@ -49,64 +49,4 @@ public class Zombie : MonoBehaviour
             animator.SetBool("IsRun", true);
         }
     }
-
-    //void Update()
-    //{
-    //    if (playerTransform != null)
-    //    {
-    //        agent.SetDestination(playerTransform.position);
-    //    }
-
-    //    // 플레이어와의 거리 계산
-    //    float distance = Vector3.Distance(transform.position, playerTransform.position);
-
-    //    if (distance <= attackRange)
-    //    {
-    //        // 가까워지면 정지하고 걷기(혹은 대기) 모드로
-    //        agent.isStopped = true; // agent.speed = 0f 대신 사용하는 유니티 권장 기능입니다.
-    //        animator.SetBool("IsRun", false);
-    //    }
-    //    else
-    //    {
-    //        // 멀어지면 다시 추적 및 달리기
-    //        agent.isStopped = false;
-    //        agent.speed = runSpeed;
-    //        agent.SetDestination(playerTransform.position);
-    //        animator.SetBool("IsRun", true);
-    //    }
-    //}
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (!other.CompareTag("Player")) { return; }
-    //    agent.speed = 0f;
-    //    animator.SetBool("IsRun", false);
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (!other.CompareTag("Player")) { return; }
-    //    agent.speed = 5f;
-    //    animator.SetBool("IsRun", true);
-    //}
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (!collision.gameObject.CompareTag("Player")) { return; }
-
-    //    agent.speed = 0f;
-    //    animator.SetBool("IsRun", false);
-
-    //    Debug.Log("Walk");
-    //}
-
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (!collision.gameObject.CompareTag("Player")) { return; }
-
-    //    agent.speed = 5f;
-    //    animator.SetBool("IsRun", true);
-
-    //    Debug.Log("Run");
-    //}
 }
