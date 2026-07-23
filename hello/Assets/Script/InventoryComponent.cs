@@ -27,29 +27,22 @@ public class InventoryComponent : MonoBehaviour
     {
         for (int i = 0; i < maxSlotCnt; ++i)
         {
-            if (!slots[i].IsEmpty && slots[i].item.id == newItem.id && slots[i].cnt < maxItemCnt)
-            {
-                ItemTemplete.Slot tempSlot = slots[i];
-                tempSlot.cnt++;
-                slots[i] = tempSlot;
-
-                OnInventoryChanged?.Invoke();
-                return true;
-            }
-        }
-
-        for (int i = 0; i < maxSlotCnt; ++i)
-        {
             if (slots[i].IsEmpty)
             {
                 slots[i] = new ItemTemplete.Slot(newItem, 1);
                 OnInventoryChanged?.Invoke();
+
                 return true;
             }
         }
 
-        Debug.Log("인벤토리가 가득 찼습니다.");
         return false;
+    }
+
+    // Button OnClick 연결용 (반환형 void, int 매개변수)
+    public void SubtractFromUI(int slotIndex)
+    {
+        Subtract(slotIndex);
     }
 
     public bool Subtract(int slotIndex)

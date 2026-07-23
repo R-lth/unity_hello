@@ -1,5 +1,11 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
+
+using System;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -8,16 +14,33 @@ public class UIManager : MonoBehaviour
     [Header("UI References")]
     public GameObject pickupPopupUI;
     public TextMeshProUGUI popupText;
+    [SerializeField] private Button yesButton;
+    [SerializeField] private Button noButton; // NO 버튼도 코드로 묶으면 깔끔합니다!
 
     [Header("Player Target")]
     public InventoryComponent playerInventory;
 
-    private FieldItem currentItem; 
+    private Action onYesConfirmed; // YES 누르면 실행할 동작
 
     private void Awake()
     {
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
+
+        // YES 버튼 이벤트 바인딩
+        yesButton.onClick.RemoveAllListeners();
+        yesButton.onClick.AddListener(() =>
+        {
+            onYesConfirmed?.Invoke(); // 등록된 동작 실행
+            ClosePopup();
+        });
+
+        // NO 버튼 이벤트 바인딩
+        if (noButton != null)
+        {
+            noButton.onClick.RemoveAllListeners();
+            noButton.onClick.AddListener(ClosePopup);
+        }
     }
 
     private void Start()
@@ -25,41 +48,87 @@ public class UIManager : MonoBehaviour
         if (playerInventory == null) { playerInventory = FindAnyObjectByType<InventoryComponent>(); }
     }
 
+    // 1. 필드 아이템 획득 팝업
     public void ShowPickupPopup(FieldItem item)
     {
-        currentItem = item;
-        pickupPopupUI.SetActive(true);
-        popupText.text = $"{currentItem.myItem.name}를 획득하시겠습니까?";
-    }
+        popupText.text = $"{item.myItem.itemName}를 획득하시겠습니까?";
 
-    public void OnClickYes()
-    {
-        if (currentItem != null && playerInventory != null)
+        // YES 누르면 실행될 동작을 Action으로 넘김!
+        onYesConfirmed = () =>
         {
-            bool isAdded = playerInventory.AddItem(currentItem.myItem);
-
-            if (isAdded)
+            if (playerInventory != null && playerInventory.AddItem(item.myItem))
             {
-                // todo. 오브젝트 풀링
-                Destroy(currentItem.gameObject);
+                Destroy(item.gameObject);
             }
-            else 
-            {
-                Debug.LogWarning("인벤토리가 가득 차서 아이템을 주울 수 없습니다!");
-            }
-        }
+        };
 
-        ClosePopup();
+        pickupPopupUI.SetActive(true);
     }
 
-    public void OnClickNo()
+    // 2. 만약 나중에 아이템 사용/버리기 확인 팝업도 필요하다면? 그냥 만들어 쓰면 됨!
+    public void ShowConfirmPopup(string message, Action onConfirm)
     {
-        ClosePopup();
+        popupText.text = message;
+        onYesConfirmed = onConfirm; // 넘겨받은 동작 세팅
+        pickupPopupUI.SetActive(true);
     }
 
-    private void ClosePopup()
+    public void ClosePopup()
     {
         pickupPopupUI.SetActive(false);
-        currentItem = null;
+        onYesConfirmed = null; // 초기화
     }
 }
+
+//public class UIManager : MonoBehaviour
+//{
+//    public static UIManager Instance { get; private set; }
+
+//    [Header("UI References")]
+//    public GameObject pickupPopupUI;
+//    public TextMeshProUGUI popupText;
+
+//    [Header("Player Target")]
+//    public InventoryComponent playerInventory;
+
+//    private FieldItem currentItem; 
+
+//    private void Start()
+//    {
+//        if (playerInventory == null) { playerInventory = FindAnyObjectByType<InventoryComponent>(); }
+//    }
+
+//    public void ShowPickupPopup(FieldItem item)
+//    {
+//        currentItem = item;
+//        pickupPopupUI.SetActive(true);
+//        popupText.text = $"{currentItem.myItem.itemName}를 획득하시겠습니까?";
+//    }
+
+//    public void OnClickYes()
+//    {
+//        if (currentItem != null && playerInventory != null)
+//        {
+//            bool isAdded = playerInventory.AddItem(currentItem.myItem);
+
+//            if (isAdded)
+//            {
+//                // todo. 오브젝트 풀링
+//                Destroy(currentItem.gameObject);
+//            }
+//        }
+
+//        ClosePopup();
+//    }
+
+//    public void OnClickNo()
+//    {
+//        ClosePopup();
+//    }
+
+//    private void ClosePopup()
+//    {
+//        pickupPopupUI.SetActive(false);
+//        currentItem = null;
+//    }
+//}

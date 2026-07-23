@@ -9,7 +9,7 @@ public class ItemTemplete : MonoBehaviour
     [System.Serializable]
     public struct Item
     {
-        public string name;
+        public string itemName;
         public int id;
         public Stat stats;
     }
