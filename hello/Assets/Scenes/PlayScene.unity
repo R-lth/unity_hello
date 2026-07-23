@@ -27469,6 +27469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1244327904}
   - component: {fileID: 1244327903}
+  - component: {fileID: 1244327905}
   m_Layer: 0
   m_Name: SoundObj
   m_TagString: Untagged
@@ -27588,6 +27589,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1244327905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244327902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda0f4182524e3b4fb1b8f6c9604246c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &1254596398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46901,6 +46914,22 @@ PrefabInstance:
     - target: {fileID: 1409728478211012936, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
       propertyPath: m_Name
       value: Boss Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384061931186831424, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384061931186831424, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384061931186831424, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384061931186831424, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3312536448583167983, guid: 441aba93f8b9f9549a1a58cea72eb0f2, type: 3}
       propertyPath: m_LocalPosition.x
