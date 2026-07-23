@@ -15,12 +15,12 @@ public class UIManager : MonoBehaviour
     public GameObject pickupPopupUI;
     public TextMeshProUGUI popupText;
     [SerializeField] private Button yesButton;
-    [SerializeField] private Button noButton; // NO 버튼도 코드로 묶으면 깔끔합니다!
+    [SerializeField] private Button noButton; 
 
     [Header("Player Target")]
     public InventoryComponent playerInventory;
 
-    private Action onYesConfirmed; // YES 누르면 실행할 동작
+    private Action onYesConfirmed; 
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
         yesButton.onClick.RemoveAllListeners();
         yesButton.onClick.AddListener(() =>
         {
-            onYesConfirmed?.Invoke(); // 등록된 동작 실행
+            onYesConfirmed?.Invoke();
             ClosePopup();
         });
 

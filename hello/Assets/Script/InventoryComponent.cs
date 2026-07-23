@@ -39,21 +39,15 @@ public class InventoryComponent : MonoBehaviour
         return false;
     }
 
-    // Button OnClick 연결용 (반환형 void, int 매개변수)
-    public void SubtractFromUI(int slotIndex)
+    public void Subtract(int slotIndex)
     {
-        Subtract(slotIndex);
-    }
-
-    public bool Subtract(int slotIndex)
-    {
-        if (slotIndex < 0 || slotIndex >= slots.Count) return false;
+        if (slotIndex < 0 || slotIndex >= slots.Count) return;
 
         ItemTemplete.Slot slot = slots[slotIndex];
 
         if (slot.IsEmpty)
         {
-            return false;
+            return;
         }
 
         slot.cnt--;
@@ -66,6 +60,6 @@ public class InventoryComponent : MonoBehaviour
         slots[slotIndex] = slot;
         OnInventoryChanged?.Invoke();
 
-        return true;
+        return;
     }
 }
