@@ -8,11 +8,14 @@ public class Car : MonoBehaviour
     float moveSpeed = 2f;
     [SerializeField]
     float rotateSpeed = 2f;
+    [SerializeField] 
+    GameObject inventoryUI;
 
     Rigidbody rb;
     float turn = 0f;
     Vector3 keyboardMove = Vector3.zero;
     Vector2 mouseDelta = Vector2.zero;
+    bool isInventoryOpen;
 
     void Start()
     {
@@ -32,6 +35,12 @@ public class Car : MonoBehaviour
     private void OnLook(InputValue value)
     {
         mouseDelta = value.Get<Vector2>();
+    }
+
+    private void OnInventoryToggle()
+    {
+        isInventoryOpen = !isInventoryOpen;
+        inventoryUI.SetActive(isInventoryOpen);
     }
 
     private void FixedUpdate()
