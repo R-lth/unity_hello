@@ -20,7 +20,6 @@ public class BossZombie : MonoBehaviour
 
     private float attackTimer;
 
-    // Animator Parameter
     private static readonly int SpeedHash = Animator.StringToHash("MoveSpeed");
     private static readonly int AttackHash = Animator.StringToHash("Attack");
 
@@ -47,8 +46,7 @@ public class BossZombie : MonoBehaviour
 
     private void Update()
     {
-        if (playerTransform == null)
-            return;
+        if (playerTransform == null) { return; }
 
         attackTimer += Time.deltaTime;
 
@@ -66,9 +64,6 @@ public class BossZombie : MonoBehaviour
         UpdateAnimation();
     }
 
-    /// <summary>
-    /// 플레이어 추적
-    /// </summary>
     private void Chase()
     {
         agent.isStopped = false;
@@ -76,24 +71,17 @@ public class BossZombie : MonoBehaviour
         agent.SetDestination(playerTransform.position);
     }
 
-    /// <summary>
-    /// 공격
-    /// </summary>
     private void Attack()
     {
         agent.isStopped = true;
 
-        // 플레이어를 바라봄
         Vector3 direction = playerTransform.position - transform.position;
         direction.y = 0f;
 
         if (direction.sqrMagnitude > 0.001f)
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation,
-                targetRotation,
-                10f * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
         }
 
         // 공격 쿨타임
@@ -104,11 +92,10 @@ public class BossZombie : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Blend Tree Speed 제어
-    /// </summary>
     private void UpdateAnimation()
     {
+        // Blend Tree 제어
+
         float speed = 0f;
 
         if (!agent.isStopped && agent.speed > 0f)
@@ -118,10 +105,6 @@ public class BossZombie : MonoBehaviour
 
         speed = Mathf.Clamp01(speed);
 
-        animator.SetFloat(
-            SpeedHash,
-            speed,
-            0.1f,
-            Time.deltaTime);
+        animator.SetFloat(SpeedHash, speed, 0.1f, Time.deltaTime);
     }
 }
